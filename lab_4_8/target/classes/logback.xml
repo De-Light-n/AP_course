@@ -10,10 +10,10 @@
     <appender name="SMTP" class="ch.qos.logback.classic.net.SMTPAppender">
         <smtpHost>smtp.gmail.com</smtpHost>
         <smtpPort>587</smtpPort>
-        <username>nazarajko2@gmail.com</username>
-        <password>ogrn zeuk hfly mmwh</password>
-        <to>nazarajko2@gmail.com</to>
-        <from>nazarajko2@gmail.com</from>
+        <username>****</username>
+        <password>****</password>
+        <to>****</to>
+        <from>****</from>
         <subject>Critical Error in Application</subject>
         <STARTTLS>true</STARTTLS>
         <!--<asynchronousSending>false</asynchronousSending>-->
