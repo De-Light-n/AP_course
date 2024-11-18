@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="uk"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InsuranceObligation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AP Course</a> &gt; <a href="index.source.html" class="el_package">Obligations</a> &gt; <span class="el_source">InsuranceObligation.java</span></div><h1>InsuranceObligation.java</h1><pre class="source lang-java linenums">package Obligations;
+
+
+import java.io.Serializable;
+
+public abstract class InsuranceObligation implements Serializable{
+    protected double riskLevel; 
+    protected double amount;    
+    protected int duration;     
+    protected String type;      
+
+<span class="fc" id="L12">    public InsuranceObligation(double riskLevel, double amount, int duration, String type) {</span>
+<span class="fc" id="L13">        this.riskLevel = riskLevel;</span>
+<span class="fc" id="L14">        this.amount = amount;</span>
+<span class="fc" id="L15">        this.duration = duration;</span>
+<span class="fc" id="L16">        this.type = type;</span>
+<span class="fc" id="L17">    }</span>
+
+    public double getRiskLevel() {
+<span class="fc" id="L20">        return riskLevel;</span>
+    }
+
+    public double getAmount() {
+<span class="fc" id="L24">        return amount;</span>
+    }
+
+    public int getDuration() {
+<span class="fc" id="L28">        return duration;</span>
+    }
+
+    public String getType() {
+<span class="fc" id="L32">        return type;</span>
+    }
+
+    public void setAmount(double amount) {
+<span class="fc" id="L36">        this.amount = amount;</span>
+<span class="fc" id="L37">    }</span>
+
+    public void setDuration(int duration) {
+<span class="fc" id="L40">        this.duration = duration;</span>
+<span class="fc" id="L41">    }</span>
+
+    public void setRiskLevel(double riskLevel) {
+<span class="fc" id="L44">        this.riskLevel = riskLevel;</span>
+<span class="fc" id="L45">    }</span>
+
+    public abstract double calculateValue();
+
+    public String toString(){
+<span class="fc" id="L50">        return &quot;Тип: &quot; + this.getType() +</span>
+<span class="fc" id="L51">        &quot;, Рiвень ризику: &quot; + this.getRiskLevel() +</span>
+<span class="fc" id="L52">        &quot;, Сума: &quot; + this.getAmount() +</span>
+<span class="fc" id="L53">        &quot;, Термiн дiї(в мiсяцях): &quot; + this.getDuration() +</span>
+<span class="fc" id="L54">        &quot;, Вартiсть: &quot; + this.calculateValue();</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

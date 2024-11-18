@@ -1,0 +1,22 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+AP Course,Der,Derivative,20,176,5,11,5,34,5,12,1,8
+AP Course,default,Main,10,0,0,0,4,0,2,0,2,0
+AP Course,Obligations,HealthInsurance,0,54,0,4,0,16,0,8,0,6
+AP Course,Obligations,InsuranceObligation,0,69,0,0,0,21,0,9,0,9
+AP Course,Obligations,LifeInsurance,0,23,0,0,0,5,0,3,0,3
+AP Course,Obligations,PropertyInsurance,0,56,0,2,0,18,0,9,0,8
+AP Course,Commands.MenuCommands,LoadFile,8,0,0,0,4,0,2,0,2,0
+AP Course,Commands.MenuCommands,CreateDerCom,8,0,0,0,4,0,2,0,2,0
+AP Course,Commands.MenuCommands,DisplayDers,8,0,0,0,4,0,2,0,2,0
+AP Course,Commands.MenuCommands,SaveToFile,8,0,0,0,4,0,2,0,2,0
+AP Course,Commands.MenuCommands,MenuCommand,6,0,0,0,3,0,1,0,1,0
+AP Course,Commands.MenuCommands,ManageDerCom,8,0,0,0,4,0,2,0,2,0
+AP Course,Commands,Command,3,0,0,0,1,0,1,0,1,0
+AP Course,Commands.DerivativeCommands,SortOblByRisk,11,0,0,0,4,0,2,0,2,0
+AP Course,Commands.DerivativeCommands,FilterObl,11,0,0,0,4,0,2,0,2,0
+AP Course,Commands.DerivativeCommands,AddInsurObl,11,0,0,0,4,0,2,0,2,0
+AP Course,Commands.DerivativeCommands,DerCommand,9,0,0,0,4,0,1,0,1,0
+AP Course,Commands.DerivativeCommands,TotalValue,11,0,0,0,4,0,2,0,2,0
+AP Course,Commands.DerivativeCommands,RemInsurObl,11,0,0,0,4,0,2,0,2,0
+AP Course,Commands.DerivativeCommands,DisplayObl,11,0,0,0,4,0,2,0,2,0
+AP Course,Interface,UserInterface,718,0,38,0,175,0,38,0,18,0

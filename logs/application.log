@@ -1,0 +1,194 @@
+2024-11-09 13:19:17 [main] INFO  Commands.Command - Початок програми
+2024-11-09 13:19:17 [main] INFO  Commands.Command - Перед вибором
+2024-11-09 13:19:20 [main] INFO  Commands.Command - Вибiр: 5
+2024-11-09 13:19:20 [main] ERROR Commands.Command - Файл для завантаження не знайдено
+java.io.FileNotFoundException: lab_4_8\derivatives.dat (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at Commands.MenuCommands.LoadFile.execute(LoadFile.java:21)
+	at Interface.UserInterface.start(UserInterface.java:59)
+	at Main.main(Main.java:13)
+2024-11-09 13:19:20 [main] INFO  Commands.Command - Файл для завантаження не знайдено
+java.io.FileNotFoundException: lab_4_8\derivatives.dat (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at Commands.MenuCommands.LoadFile.execute(LoadFile.java:21)
+	at Interface.UserInterface.start(UserInterface.java:59)
+	at Main.main(Main.java:13)
+2024-11-09 13:19:20 [main] INFO  Commands.Command - Перед вибором
+2024-11-09 13:19:29 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-09 13:19:29 [main] INFO  Commands.Command - Користувач завершив роботу.
+2024-11-11 12:54:53 [main] INFO  Commands.Command - Початок програми
+2024-11-11 12:54:53 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 12:54:56 [main] INFO  Commands.Command - Вибiр: 1
+2024-11-11 12:54:56 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 12:55:00 [main] INFO  Commands.Command - Вибiр: 2
+2024-11-11 12:55:02 [main] INFO  Commands.Command - Вибiр дії: 1
+2024-11-11 12:55:04 [main] INFO  Commands.Command - Додано Страхування: 1
+2024-11-11 12:55:09 [main] INFO  Commands.Command - Додано ризик: 0.0
+2024-11-11 12:55:13 [main] INFO  Commands.Command - Додано суму: 1.0
+2024-11-11 12:55:13 [main] INFO  Commands.Command - Додано тривалiсть: 0
+2024-11-11 12:55:15 [main] INFO  Commands.Command - Додано бенефiцiара: 11
+2024-11-11 12:55:15 [main] INFO  Commands.Command - Додано нове зобов’язання: Тип: Life, Рiвень ризику: 0.0, Сума: 1.0, Термiн дiї(в мiсяцях): 0, Вартiсть: 1.0
+2024-11-11 12:55:29 [main] INFO  Commands.Command - Вибiр дії: 6
+2024-11-11 12:55:44 [main] INFO  Commands.Command - Вибiр дії: 1
+2024-11-11 12:55:45 [main] INFO  Commands.Command - Додано Страхування: 1
+2024-11-11 12:55:47 [main] INFO  Commands.Command - Додано ризик: 1.0
+2024-11-11 12:55:48 [main] INFO  Commands.Command - Додано суму: 1.0
+2024-11-11 12:55:48 [main] INFO  Commands.Command - Додано тривалiсть: 1
+2024-11-11 12:55:59 [main] INFO  Commands.Command - Додано бенефiцiара: реара
+2024-11-11 12:55:59 [main] INFO  Commands.Command - Додано нове зобов’язання: Тип: Life, Рiвень ризику: 1.0, Сума: 1.0, Термiн дiї(в мiсяцях): 1, Вартiсть: 1.1
+2024-11-11 12:56:06 [main] INFO  Commands.Command - Вибiр дії: 6
+2024-11-11 12:56:16 [main] INFO  Commands.Command - Вибiр дії: 7
+2024-11-11 12:56:16 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 12:56:17 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-11 12:56:17 [main] INFO  Commands.Command - Користувач завершив роботу.
+2024-11-11 12:59:15 [main] INFO  Commands.Command - Початок програми
+2024-11-11 12:59:15 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 12:59:19 [main] INFO  Commands.Command - Вибiр: 1
+2024-11-11 12:59:19 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 12:59:19 [main] INFO  Commands.Command - Вибiр: 1
+2024-11-11 12:59:19 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 12:59:22 [main] INFO  Commands.Command - Вибiр: 3
+2024-11-11 12:59:22 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 12:59:29 [main] INFO  Commands.Command - Вибiр: 2
+2024-11-11 12:59:31 [main] INFO  Commands.Command - Вибiр дії: 1
+2024-11-11 12:59:32 [main] INFO  Commands.Command - Додано Страхування: 1
+2024-11-11 12:59:37 [main] INFO  Commands.Command - Додано ризик: 2.0
+2024-11-11 12:59:39 [main] INFO  Commands.Command - Додано суму: 3.0
+2024-11-11 13:00:56 [main] INFO  Commands.Command - Початок програми
+2024-11-11 13:00:56 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:00:58 [main] INFO  Commands.Command - Вибiр: 1
+2024-11-11 13:00:58 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:01:01 [main] INFO  Commands.Command - Вибiр: 1
+2024-11-11 13:01:01 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:01:03 [main] INFO  Commands.Command - Вибiр: 2
+2024-11-11 13:01:09 [main] INFO  Commands.Command - Вибiр дії: 1
+2024-11-11 13:01:10 [main] INFO  Commands.Command - Додано Страхування: 1
+2024-11-11 13:01:12 [main] INFO  Commands.Command - Додано ризик: 12.0
+2024-11-11 13:01:13 [main] INFO  Commands.Command - Додано суму: 32.0
+2024-11-11 13:01:14 [main] INFO  Commands.Command - Додано тривалiсть: 32
+2024-11-11 13:01:16 [main] INFO  Commands.Command - Додано бенефiцiара: рлгрлгр
+2024-11-11 13:01:16 [main] INFO  Commands.Command - Додано нове зобов’язання: Тип: Life, Рiвень ризику: 12.0, Сума: 32.0, Термiн дiї(в мiсяцях): 32, Вартiсть: 70.4
+2024-11-11 13:01:18 [main] INFO  Commands.Command - Вибiр дії: 1
+2024-11-11 13:01:21 [main] INFO  Commands.Command - Додано Страхування: 2
+2024-11-11 13:01:25 [main] INFO  Commands.Command - Додано ризик: 32.0
+2024-11-11 13:01:28 [main] INFO  Commands.Command - Додано суму: 123.0
+2024-11-11 13:01:30 [main] INFO  Commands.Command - Додано тривалiсть: 34
+2024-11-11 13:01:33 [main] INFO  Commands.Command - Додано вiк: 0
+2024-11-11 13:01:36 [main] INFO  Commands.Command - Додано захворювання: false
+2024-11-11 13:01:36 [main] INFO  Commands.Command - Додано нове зобов’язання: Тип: Health, Рiвень ризику: 32.0, Сума: 123.0, Термiн дiї(в мiсяцях): 34, Вартiсть: 319.8
+2024-11-11 13:01:47 [main] INFO  Commands.Command - Вибiр дії: 6
+2024-11-11 13:02:12 [main] INFO  Commands.Command - Вибiр дії: 4
+2024-11-11 13:02:12 [main] INFO  Commands.Command - Зобов’язання відсортовані за рівнем ризику.
+2024-11-11 13:02:20 [main] INFO  Commands.Command - Вибiр дії: 1
+2024-11-11 13:02:23 [main] INFO  Commands.Command - Додано Страхування: 3
+2024-11-11 13:02:30 [main] INFO  Commands.Command - Додано ризик: 3.0
+2024-11-11 13:02:34 [main] INFO  Commands.Command - Додано суму: 43.0
+2024-11-11 13:02:36 [main] INFO  Commands.Command - Додано тривалiсть: 43
+2024-11-11 13:02:43 [main] INFO  Commands.Command - Додано нове зобов’язання: Тип: Property, Рiвень ризику: 3.0, Сума: 43.0, Термiн дiї(в мiсяцях): 43, Вартiсть: 46.870000000000005
+2024-11-11 13:02:55 [main] INFO  Commands.Command - Вибiр дії: 6
+2024-11-11 13:02:59 [main] INFO  Commands.Command - Вибiр дії: 4
+2024-11-11 13:02:59 [main] INFO  Commands.Command - Зобов’язання відсортовані за рівнем ризику.
+2024-11-11 13:03:02 [main] INFO  Commands.Command - Вибiр дії: 7
+2024-11-11 13:03:02 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:03:06 [main] INFO  Commands.Command - Вибiр: 4
+2024-11-11 13:03:06 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:03:08 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-11 13:03:08 [main] INFO  Commands.Command - Користувач завершив роботу.
+2024-11-11 13:03:13 [main] INFO  Commands.Command - Початок програми
+2024-11-11 13:03:13 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:03:15 [main] INFO  Commands.Command - Вибiр: 5
+2024-11-11 13:03:15 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:03:19 [main] INFO  Commands.Command - Вибiр: 3
+2024-11-11 13:03:19 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:03:36 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-11 13:03:36 [main] INFO  Commands.Command - Користувач завершив роботу.
+2024-11-11 13:08:12 [main] INFO  Commands.Command - Початок програми
+2024-11-11 13:08:12 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:08:15 [main] INFO  Commands.Command - Вибiр: 5
+2024-11-11 13:08:15 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:08:24 [main] INFO  Commands.Command - Вибiр: 3
+2024-11-11 13:08:24 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:08:28 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-11 13:08:28 [main] INFO  Commands.Command - Користувач завершив роботу.
+2024-11-11 13:12:18 [main] INFO  Commands.Command - Початок програми
+2024-11-11 13:12:18 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:12:20 [main] INFO  Commands.Command - Вибiр: 5
+2024-11-11 13:12:20 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:12:23 [main] INFO  Commands.Command - Вибiр: 3
+2024-11-11 13:12:23 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:12:34 [main] INFO  Commands.Command - Вибiр: 3
+2024-11-11 13:12:34 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:12:37 [main] INFO  Commands.Command - Вибiр: 2
+2024-11-11 13:12:44 [main] INFO  Commands.Command - Вибiр дії: 3
+2024-11-11 13:12:44 [main] INFO  Commands.Command - Розрахована загальна вартість деривативу: 0.0
+2024-11-11 13:12:49 [main] INFO  Commands.Command - Вибiр дії: 1
+2024-11-11 13:12:51 [main] INFO  Commands.Command - Додано Страхування: 2
+2024-11-11 13:12:54 [main] INFO  Commands.Command - Додано ризик: 32.0
+2024-11-11 13:12:55 [main] INFO  Commands.Command - Додано суму: 23.0
+2024-11-11 13:12:56 [main] INFO  Commands.Command - Додано тривалiсть: 324
+2024-11-11 13:12:59 [main] INFO  Commands.Command - Додано вiк: 12
+2024-11-11 13:13:06 [main] INFO  Commands.Command - Додано захворювання: true
+2024-11-11 13:13:06 [main] INFO  Commands.Command - Додано нове зобов’язання: Тип: Health, Рiвень ризику: 32.0, Сума: 23.0, Термiн дiї(в мiсяцях): 324, Вартiсть: 89.7
+2024-11-11 13:13:11 [main] INFO  Commands.Command - Вибiр дії: 6
+2024-11-11 13:13:34 [main] INFO  Commands.Command - Вибiр дії: 7
+2024-11-11 13:13:34 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:13:37 [main] INFO  Commands.Command - Вибiр: 4
+2024-11-11 13:13:37 [main] INFO  Commands.Command - Перед вибором
+2024-11-11 13:13:41 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-11 13:13:41 [main] INFO  Commands.Command - Користувач завершив роботу.
+2024-11-14 13:23:20 [main] INFO  Commands.Command - Початок програми
+2024-11-14 13:23:20 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:23:29 [main] INFO  Commands.Command - Вибiр: 1
+2024-11-14 13:23:29 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:23:31 [main] INFO  Commands.Command - Вибiр: 1
+2024-11-14 13:23:31 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:23:33 [main] INFO  Commands.Command - Вибiр: 2
+2024-11-14 13:23:36 [main] INFO  Commands.Command - Вибiр дії: 1
+2024-11-14 13:23:37 [main] INFO  Commands.Command - Додано Страхування: 1
+2024-11-14 13:23:45 [main] INFO  Commands.Command - Додано ризик: 12.0
+2024-11-14 13:23:46 [main] INFO  Commands.Command - Додано суму: 12.0
+2024-11-14 13:23:47 [main] INFO  Commands.Command - Додано тривалiсть: 12
+2024-11-14 13:23:49 [main] INFO  Commands.Command - Додано бенефiцiара: лрлрлгр
+2024-11-14 13:23:49 [main] INFO  Commands.Command - Додано нове зобов’язання: Тип: Life, Рiвень ризику: 12.0, Сума: 12.0, Термiн дiї(в мiсяцях): 12, Вартiсть: 26.400000000000002
+2024-11-14 13:23:52 [main] INFO  Commands.Command - Вибiр дії: 7
+2024-11-14 13:23:52 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:23:55 [main] INFO  Commands.Command - Вибiр: 3
+2024-11-14 13:23:55 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:24:01 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-14 13:24:01 [main] INFO  Commands.Command - Користувач завершив роботу.
+2024-11-14 13:33:00 [main] INFO  Commands.Command - Початок програми
+2024-11-14 13:33:00 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:33:02 [main] INFO  Commands.Command - Вибiр: 5
+2024-11-14 13:33:02 [main] ERROR Commands.Command - Файл для завантаження не знайдено
+java.io.FileNotFoundException: lab_4_8\derivatives.dat (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at Commands.MenuCommands.LoadFile.execute(LoadFile.java:20)
+	at Interface.UserInterface.start(UserInterface.java:60)
+	at Main.main(Main.java:14)
+2024-11-14 13:33:02 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:33:07 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-14 13:33:07 [main] INFO  Commands.Command - Користувач завершив роботу.
+2024-11-14 13:33:27 [main] INFO  Commands.Command - Початок програми
+2024-11-14 13:33:27 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:33:29 [main] INFO  Commands.Command - Вибiр: 5
+2024-11-14 13:33:29 [main] ERROR Commands.Command - Файл для завантаження не знайдено
+java.io.FileNotFoundException: lab_4_8\derivatives.dat (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at Commands.MenuCommands.LoadFile.execute(LoadFile.java:20)
+	at Interface.UserInterface.start(UserInterface.java:60)
+	at Main.main(Main.java:14)
+2024-11-14 13:33:29 [main] INFO  Commands.Command - Перед вибором
+2024-11-14 13:33:53 [main] INFO  Commands.Command - Вибiр: 6
+2024-11-14 13:33:53 [main] INFO  Commands.Command - Користувач завершив роботу.

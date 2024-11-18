@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="uk"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PropertyInsurance.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AP Course</a> &gt; <a href="index.source.html" class="el_package">Obligations</a> &gt; <span class="el_source">PropertyInsurance.java</span></div><h1>PropertyInsurance.java</h1><pre class="source lang-java linenums">package Obligations;
+
+public class PropertyInsurance extends InsuranceObligation {
+    private String propertyLocation; 
+    private double propertyValue;    
+    private boolean isHighRiskArea;  
+
+    public PropertyInsurance(double riskLevel, double amount, int duration, String propertyLocation, double propertyValue, boolean isHighRiskArea) {
+<span class="fc" id="L9">        super(riskLevel, amount, duration, &quot;Property&quot;);</span>
+<span class="fc" id="L10">        this.propertyLocation = propertyLocation;</span>
+<span class="fc" id="L11">        this.propertyValue = propertyValue;</span>
+<span class="fc" id="L12">        this.isHighRiskArea = isHighRiskArea;</span>
+<span class="fc" id="L13">    }</span>
+
+    public String getPropertyLocation() {
+<span class="fc" id="L16">        return propertyLocation;</span>
+    }
+
+    public void setPropertyLocation(String propertyLocation) {
+<span class="fc" id="L20">        this.propertyLocation = propertyLocation;</span>
+<span class="fc" id="L21">    }</span>
+
+    public double getPropertyValue() {
+<span class="fc" id="L24">        return propertyValue;</span>
+    }
+
+    public void setPropertyValue(double propertyValue) {
+<span class="fc" id="L28">        this.propertyValue = propertyValue;</span>
+<span class="fc" id="L29">    }</span>
+
+    public boolean isHighRiskArea() {
+<span class="fc" id="L32">        return isHighRiskArea;</span>
+    }
+
+    public void setHighRiskArea(boolean isHighRiskArea) {
+<span class="fc" id="L36">        this.isHighRiskArea = isHighRiskArea;</span>
+<span class="fc" id="L37">    }</span>
+
+    // Метод для обчислення вартості страхового зобов’язання для страхування майна
+    @Override
+    public double calculateValue() {
+<span class="fc" id="L42">        double baseValue = amount * (1 + riskLevel * 0.03); </span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (isHighRiskArea) {</span>
+<span class="fc" id="L44">            baseValue *= 1.3; </span>
+        }
+<span class="fc" id="L46">        return baseValue;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

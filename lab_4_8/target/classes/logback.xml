@@ -1,0 +1,36 @@
+<configuration>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/application.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SMTP" class="ch.qos.logback.classic.net.SMTPAppender">
+        <smtpHost>smtp.gmail.com</smtpHost>
+        <smtpPort>587</smtpPort>
+        <username>nazarajko2@gmail.com</username>
+        <password>ogrn zeuk hfly mmwh</password>
+        <to>nazarajko2@gmail.com</to>
+        <from>nazarajko2@gmail.com</from>
+        <subject>Critical Error in Application</subject>
+        <STARTTLS>true</STARTTLS>
+        <!--<asynchronousSending>false</asynchronousSending>-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+        <evaluator class="ch.qos.logback.classic.boolex.OnErrorEvaluator"/>
+        <mailProperties>
+            <property name="mail.smtp.starttls.enable" value="true"/>
+            <property name="mail.smtp.starttls.required" value="true"/>
+            <property name="mail.smtp.auth" value="true"/>
+            <property name="mail.smtp.ssl.trust" value="smtp.gmail.com"/>
+        </mailProperties>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="SMTP"/>
+    </root>
+</configuration>

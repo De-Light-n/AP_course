@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="uk"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserInterface.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AP Course</a> &gt; <a href="index.source.html" class="el_package">Interface</a> &gt; <span class="el_source">UserInterface.java</span></div><h1>UserInterface.java</h1><pre class="source lang-java linenums">package Interface;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import Commands.Command;
+import Commands.DerivativeCommands.*;
+import Commands.MenuCommands.*;
+import Der.Derivative;
+import Obligations.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class UserInterface {
+<span class="nc" id="L20">    private static final Logger logger = LogManager.getLogger(UserInterface.class);</span>
+
+    private List&lt;Derivative&gt; userDerivatives;
+    private Scanner scanner;
+
+    private Map&lt;Integer, MenuCommand&gt; menuCommands;
+
+<span class="nc" id="L27">    public UserInterface() {</span>
+<span class="nc" id="L28">        userDerivatives = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L29">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L30">        initializeCommands();</span>
+<span class="nc" id="L31">    }</span>
+
+    private void initializeCommands() {
+<span class="nc" id="L34">        menuCommands = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L35">        menuCommands.put(1, new CreateDerCom(this));</span>
+<span class="nc" id="L36">        menuCommands.put(2, new ManageDerCom(this));</span>
+<span class="nc" id="L37">        menuCommands.put(3, new DisplayDers(this));</span>
+<span class="nc" id="L38">        menuCommands.put(4, new SaveToFile(this));</span>
+<span class="nc" id="L39">        menuCommands.put(5, new LoadFile(this));</span>
+<span class="nc" id="L40">    }</span>
+
+    public void start() {
+<span class="nc" id="L43">        System.out.println(&quot;Ласкаво просимо до Системи управлiння страховими деривативами!&quot;);</span>
+
+<span class="nc" id="L45">        boolean exit = false;</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        while (!exit) {</span>
+<span class="nc" id="L47">            System.out.println(&quot;\nБудь ласка, виберiть опцiю:&quot;);</span>
+<span class="nc" id="L48">            System.out.println(&quot;1. Створити новий дериватив&quot;);</span>
+<span class="nc" id="L49">            System.out.println(&quot;2. Керувати iснуючим деривативом&quot;);</span>
+<span class="nc" id="L50">            System.out.println(&quot;3. Показати всi деривативи&quot;);</span>
+<span class="nc" id="L51">            System.out.println(&quot;4. Зберегти данi&quot;);</span>
+<span class="nc" id="L52">            System.out.println(&quot;5. Завантажити данi&quot;);</span>
+<span class="nc" id="L53">            System.out.println(&quot;6. Вихiд&quot;);</span>
+
+<span class="nc" id="L55">            int choice = validateInt(&quot;Вибiр:&quot;);</span>
+
+<span class="nc bnc" id="L57" title="All 2 branches missed.">            if (choice == 6) {</span>
+<span class="nc" id="L58">                exit = true;</span>
+<span class="nc" id="L59">                logger.info(&quot;Користувач завершив роботу.&quot;);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">            } else if (menuCommands.containsKey(choice)) {</span>
+<span class="nc" id="L61">                menuCommands.get(choice).execute();</span>
+            } else {
+<span class="nc" id="L63">                System.out.println(&quot;Неправильний вибiр, спробуйте ще раз.&quot;);</span>
+<span class="nc" id="L64">                logger.warn(&quot;Користувач ввів неправильний вибір: &quot; + choice);</span>
+            }
+<span class="nc" id="L66">        }</span>
+
+<span class="nc" id="L68">        System.out.println(&quot;До побачення!&quot;);</span>
+<span class="nc" id="L69">    }</span>
+
+    public void saveToFile() {
+<span class="nc" id="L72">        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(&quot;lab_4_8/derivatives.dat&quot;))) {</span>
+<span class="nc" id="L73">            oos.writeObject(userDerivatives);</span>
+<span class="nc" id="L74">            System.out.println(&quot;Данi успiшно збереженi у файл.&quot;);</span>
+<span class="nc" id="L75">        } catch (IOException e) {</span>
+<span class="nc" id="L76">            System.out.println(&quot;Помилка при збереженнi даних: &quot; + e.getMessage());</span>
+<span class="nc" id="L77">            logger.error(&quot;Помилка при збереженні даних&quot;, e);</span>
+<span class="nc" id="L78">        }</span>
+<span class="nc" id="L79">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public void loadFromFile() {
+<span class="nc" id="L83">        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(&quot;lab_4_8/derivatives.dat&quot;))) {</span>
+<span class="nc" id="L84">            userDerivatives = (List&lt;Derivative&gt;) ois.readObject();</span>
+<span class="nc" id="L85">            System.out.println(&quot;Данi успiшно завантаженi з файлу.&quot;);</span>
+<span class="nc" id="L86">        } catch (FileNotFoundException e) {</span>
+<span class="nc" id="L87">            System.out.println(&quot;Файл не знайдено. Створiть новий дериватив перед завантаженням.&quot;);</span>
+<span class="nc" id="L88">            logger.error(&quot;Файл для завантаження не знайдено&quot;, e);</span>
+<span class="nc" id="L89">        } catch (IOException | ClassNotFoundException e) {</span>
+<span class="nc" id="L90">            System.out.println(&quot;Помилка при завантаженнi даних: &quot; + e.getMessage());</span>
+<span class="nc" id="L91">            logger.error(&quot;Помилка при завантаженні даних&quot;, e);</span>
+<span class="nc" id="L92">        }</span>
+<span class="nc" id="L93">    }</span>
+
+    public void createDerivative() {
+<span class="nc" id="L96">        Derivative derivative = new Derivative();</span>
+<span class="nc" id="L97">        userDerivatives.add(derivative);</span>
+<span class="nc" id="L98">        System.out.println(&quot;Новий дериватив створено та додано до вашого списку.&quot;);</span>
+<span class="nc" id="L99">    }</span>
+
+    public void manageDerivative() {
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        if (userDerivatives.isEmpty()) {</span>
+<span class="nc" id="L103">            System.out.println(&quot;Немає доступних деривативiв. Будь ласка, створiть спочатку.&quot;);</span>
+<span class="nc" id="L104">            return;</span>
+        }
+
+<span class="nc" id="L107">        int index = validateInt(&quot;Виберiть дериватив для управлiння (1 - &quot; + userDerivatives.size() + &quot;):&quot;) - 1;</span>
+
+<span class="nc bnc" id="L109" title="All 4 branches missed.">        if (index &lt; 0 || index &gt;= userDerivatives.size()) {</span>
+<span class="nc" id="L110">            System.out.println(&quot;Неправильний вибiр.&quot;);</span>
+<span class="nc" id="L111">            return;</span>
+        }
+
+<span class="nc" id="L114">        Derivative selectedDerivative = userDerivatives.get(index);</span>
+<span class="nc" id="L115">        Map&lt;Integer, Command&gt; manageCommands = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L116">        manageCommands.put(1, new AddInsurObl(this, selectedDerivative));</span>
+<span class="nc" id="L117">        manageCommands.put(2, new RemInsurObl(this, selectedDerivative));</span>
+<span class="nc" id="L118">        manageCommands.put(3, new TotalValue(this, selectedDerivative));</span>
+<span class="nc" id="L119">        manageCommands.put(4, new SortOblByRisk(this, selectedDerivative));</span>
+<span class="nc" id="L120">        manageCommands.put(5, new FilterObl(this, selectedDerivative));</span>
+<span class="nc" id="L121">        manageCommands.put(6, new DisplayObl(this, selectedDerivative));</span>
+
+<span class="nc" id="L123">        boolean back = false;</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        while (!back) {</span>
+<span class="nc" id="L125">            System.out.println(&quot;\nУправлiння деривативом - Виберiть опцiю:&quot;);</span>
+<span class="nc" id="L126">            System.out.println(&quot;1. Додати страхове зобов'язання&quot;);</span>
+<span class="nc" id="L127">            System.out.println(&quot;2. Видалити страхове зобов'язання&quot;);</span>
+<span class="nc" id="L128">            System.out.println(&quot;3. Розрахувати загальну вартiсть&quot;);</span>
+<span class="nc" id="L129">            System.out.println(&quot;4. Сортувати зобов'язання за рiвнем ризику&quot;);</span>
+<span class="nc" id="L130">            System.out.println(&quot;5. Фiльтрувати зобов'язання за параметрами&quot;);</span>
+<span class="nc" id="L131">            System.out.println(&quot;6. Показати всi зобов'язання&quot;);</span>
+<span class="nc" id="L132">            System.out.println(&quot;7. Повернутися назад&quot;);</span>
+
+<span class="nc" id="L134">            int choice = validateInt(&quot;Вибiр:&quot;);</span>
+
+<span class="nc bnc" id="L136" title="All 2 branches missed.">            if (choice == 7) {</span>
+<span class="nc" id="L137">                back = true;</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">            } else if (manageCommands.containsKey(choice)) {</span>
+<span class="nc" id="L139">                manageCommands.get(choice).execute();</span>
+            } else {
+<span class="nc" id="L141">                System.out.println(&quot;Неправильний вибiр, спробуйте ще раз.&quot;);</span>
+<span class="nc" id="L142">                logger.warn(&quot;Користувач ввів неправильний вибір: &quot; + choice);</span>
+            }
+<span class="nc" id="L144">        }</span>
+<span class="nc" id="L145">    }</span>
+    
+    public void sortObligationsByRisk(Derivative derivative){
+<span class="nc" id="L148">        derivative.sortObligationsByRisk();</span>
+<span class="nc" id="L149">        System.out.println(&quot;Зобов'язання вiдсортованi за рiвнем ризику.&quot;);</span>
+<span class="nc" id="L150">    }</span>
+
+    public void totalValue(Derivative derivative){
+<span class="nc" id="L153">        System.out.println(&quot;Загальна вартiсть деривативу: &quot; + derivative.calculateTotalValue());</span>
+<span class="nc" id="L154">    }</span>
+
+    public void displayObligations(Derivative derivative){
+<span class="nc" id="L157">        derivative.displayObligations();</span>
+<span class="nc" id="L158">    }</span>
+
+    public void addInsuranceObligation(Derivative derivative) {
+<span class="nc" id="L161">        System.out.println(&quot;Виберiть тип страхового зобов'язання для додавання:&quot;);</span>
+<span class="nc" id="L162">        System.out.println(&quot;1. Страхування життя&quot;);</span>
+<span class="nc" id="L163">        System.out.println(&quot;2. Медичне страхування&quot;);</span>
+<span class="nc" id="L164">        System.out.println(&quot;3. Страхування майна&quot;);</span>
+
+<span class="nc" id="L166">        int type = validateInt(&quot;Вибiр: &quot;);</span>
+
+<span class="nc" id="L168">        double riskLevel = validateDouble(&quot;Введiть рiвень ризику: &quot;);</span>
+<span class="nc" id="L169">        double amount = validateDouble(&quot;Введiть суму: &quot;);</span>
+<span class="nc" id="L170">        int duration = validateInt(&quot;Введiть тривалiсть (мiсяцiв): &quot;);</span>
+
+<span class="nc" id="L172">        InsuranceObligation obligation = null;</span>
+<span class="nc bnc" id="L173" title="All 4 branches missed.">        switch (type) {</span>
+            case 1:
+<span class="nc" id="L175">                System.out.print(&quot;Введiть iм'я бенефiцiара: &quot;);</span>
+<span class="nc" id="L176">                String beneficiary = scanner.nextLine();</span>
+<span class="nc" id="L177">                obligation = new LifeInsurance(riskLevel, amount, duration, beneficiary);</span>
+<span class="nc" id="L178">                break;</span>
+            case 2:
+<span class="nc" id="L180">                int age = validateInt(&quot;Введiть вiк: &quot;);</span>
+<span class="nc" id="L181">                boolean preConditions = validateBoolean(&quot;Наявнi попереднi захворювання (true/false): &quot;);</span>
+<span class="nc" id="L182">                obligation = new HealthInsurance(riskLevel, amount, duration, age, preConditions);</span>
+<span class="nc" id="L183">                break;</span>
+            case 3:
+<span class="nc" id="L185">                System.out.print(&quot;Введiть мiсцезнаходження майна: &quot;);</span>
+<span class="nc" id="L186">                String location = scanner.nextLine();</span>
+<span class="nc" id="L187">                double propertyValue = validateDouble(&quot;Введiть вартiсть майна: &quot;);</span>
+<span class="nc" id="L188">                boolean isHighRisk = validateBoolean(&quot;Знаходиться в зонi високого ризику (true/false): &quot;);</span>
+<span class="nc" id="L189">                obligation = new PropertyInsurance(riskLevel, amount, duration, location, propertyValue, isHighRisk);</span>
+<span class="nc" id="L190">                break;</span>
+            default:
+<span class="nc" id="L192">                System.out.println(&quot;Неправильно вибраний тип.&quot;);</span>
+<span class="nc" id="L193">                return;</span>
+        }
+
+<span class="nc" id="L196">        derivative.addObligation(obligation);</span>
+<span class="nc" id="L197">    }</span>
+
+    public void removeInsuranceObligation(Derivative derivative) {
+<span class="nc" id="L200">        derivative.displayObligations();</span>
+<span class="nc" id="L201">        int index = validateInt(&quot;Введiть iндекс зобов'язання для видалення:&quot;) - 1;</span>
+
+<span class="nc" id="L203">        List&lt;InsuranceObligation&gt; obligations = derivative.getObligations();</span>
+<span class="nc bnc" id="L204" title="All 4 branches missed.">        if (index &gt;= 0 &amp;&amp; index &lt; obligations.size()) {</span>
+<span class="nc" id="L205">            derivative.removeObligation(obligations.get(index));</span>
+        } else {
+<span class="nc" id="L207">            System.out.println(&quot;Неправильний iндекс зобов'язання.&quot;);</span>
+        }
+<span class="nc" id="L209">    }</span>
+
+    public void filterObligationsByParameters(Derivative derivative) {
+<span class="nc" id="L212">        double minRisk = validateDouble(&quot;Введiть мiнiмальний рiвень ризику: &quot;);</span>
+<span class="nc" id="L213">        double maxRisk = validateDouble(&quot;Введiть максимальний рiвень ризику: &quot;);</span>
+<span class="nc" id="L214">        double minAmount = validateDouble(&quot;Введiть мiнiмальну суму: &quot;);</span>
+<span class="nc" id="L215">        double maxAmount = validateDouble(&quot;Введiть максимальну суму: &quot;);</span>
+
+<span class="nc" id="L217">        List&lt;InsuranceObligation&gt; filteredObligations = derivative.findObligations(minRisk, maxRisk, minAmount, maxAmount);</span>
+<span class="nc" id="L218">        System.out.println(&quot;Знайденi зобов'язання:&quot;);</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">        for (InsuranceObligation obligation : filteredObligations) {</span>
+<span class="nc" id="L220">            obligation.toString();</span>
+<span class="nc" id="L221">        }</span>
+<span class="nc" id="L222">    }</span>
+
+    public void displayAllDerivatives() {
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        if (userDerivatives.isEmpty()) {</span>
+<span class="nc" id="L226">            System.out.println(&quot;Немає деривативiв для показу.&quot;);</span>
+<span class="nc" id="L227">            return;</span>
+        }
+
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        for (int i = 0; i &lt; userDerivatives.size(); i++) {</span>
+<span class="nc" id="L231">            System.out.println(&quot;Дериватив &quot; + (i + 1) + &quot;:&quot;);</span>
+<span class="nc" id="L232">            userDerivatives.get(i).displayObligations();</span>
+<span class="nc" id="L233">            System.out.println(&quot;---------------&quot;);</span>
+        }
+<span class="nc" id="L235">    }</span>
+
+    private int validateInt(String prompt) {
+        int value;
+        while (true) {
+<span class="nc" id="L240">            System.out.print(prompt);</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">            if (scanner.hasNextInt()) {</span>
+<span class="nc" id="L242">                value = scanner.nextInt();</span>
+<span class="nc" id="L243">                scanner.nextLine(); </span>
+<span class="nc" id="L244">                break;</span>
+            } else {
+<span class="nc" id="L246">                System.out.println(&quot;Помилка: введiть цiле число.&quot;);</span>
+<span class="nc" id="L247">                scanner.nextLine(); </span>
+            }
+        }
+<span class="nc" id="L250">        return value;</span>
+    }
+    
+    private double validateDouble(String prompt) {
+        double value;
+        while (true) {
+<span class="nc" id="L256">            System.out.print(prompt);</span>
+<span class="nc bnc" id="L257" title="All 2 branches missed.">            if (scanner.hasNextDouble()) {</span>
+<span class="nc" id="L258">                value = scanner.nextDouble();</span>
+<span class="nc" id="L259">                scanner.nextLine(); </span>
+<span class="nc" id="L260">                break;</span>
+            } else {
+<span class="nc" id="L262">                System.out.println(&quot;Помилка: введiть дiйсне число.&quot;);</span>
+<span class="nc" id="L263">                scanner.nextLine();</span>
+            }
+        }
+<span class="nc" id="L266">        return value;</span>
+    }
+
+    private boolean validateBoolean(String prompt) {
+        boolean value;
+        while (true) {
+<span class="nc" id="L272">            System.out.print(prompt);</span>
+<span class="nc bnc" id="L273" title="All 2 branches missed.">            if (scanner.hasNextBoolean()) {</span>
+<span class="nc" id="L274">                value = scanner.nextBoolean();</span>
+<span class="nc" id="L275">                scanner.nextLine(); </span>
+<span class="nc" id="L276">                break;</span>
+            } else {
+<span class="nc" id="L278">                System.out.println(&quot;Помилка: введiть true або false.&quot;);</span>
+<span class="nc" id="L279">                scanner.nextLine();</span>
+            }
+        }
+<span class="nc" id="L282">        return value;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
